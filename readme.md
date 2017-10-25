@@ -45,10 +45,10 @@ m.setPositionAll(self, pos=512, speed=90)
 
 ====== Baudrate Control ======
 # --- Get
-getBaudrateOf(motor_id)
-getBaudrateAll()
+m.getBaudrateOf(motor_id)
+m.getBaudrateAll()
 
 # --- Set
-setBaudrateOf(motor_id, baudId=1)
-setBaudrateAll(baudId=1)
+m.setBaudrateOf(motor_id, baudId=1)
+m.setBaudrateAll(baudId=1)
 ```
