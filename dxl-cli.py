@@ -110,6 +110,9 @@ class MotorManager:
     def help():
         txt = '''List of methods available.
         ====== Connection ======
+        --- Import
+        from dxl-cli import MotorManager
+
         --- Instantiate class
         m = MotorManager(p="/dev/ttyUSB0", baudRate=1000000, scanLimit=20, defaultSpeed=90)
         *** USE COMXX on Windows ***
