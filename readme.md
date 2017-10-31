@@ -18,7 +18,7 @@ You can call information below anytime by calling `MotorManager.help()`.
 # List of methods available.
 ====== Connection ======
 # --- Import
-from dxl-cli import MotorManager
+from dxlcli import MotorManager
 
 # --- Instantiate class
 m = MotorManager(p="/dev/ttyUSB0", baudRate=1000000, scanLimit=20, defaultSpeed=90)

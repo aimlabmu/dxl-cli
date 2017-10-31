@@ -38,6 +38,18 @@ class MotorManager:
         self.connected_motor_ids = list(self.serial_connection.scan(range(self.scan_limit)))
         print("Available ids are", self.connected_motor_ids)
 
+    ###########
+    # Set Ids #
+    ###########
+
+    def setNewIdOf(self, motor_id, new_id):
+        if motor_id == new_id or new_id < 1 or new_id > 254:
+            print("Please use id in range of 1-254 and not duplicated with old id: {0}".format(motor_id))
+            return
+
+        self.serial_connection.set_id(motor_id, new_id)
+        print("Motor id {0} is changed to id {1}.".format(motor_id, new_id))
+
     #####################
     # Print Information #
     #####################
@@ -111,7 +123,7 @@ class MotorManager:
         txt = '''List of methods available.
         ====== Connection ======
         --- Import
-        from dxl-cli import MotorManager
+        from dxlcli import MotorManager
 
         --- Instantiate class
         m = MotorManager(p="/dev/ttyUSB0", baudRate=1000000, scanLimit=20, defaultSpeed=90)
@@ -122,6 +134,9 @@ class MotorManager:
 
         --- Get connected motor ids
         m.getConnectIds()
+
+        ====== ID settings ======
+        m.setNewIdOf(self, motor_id, new_id):
 
         ====== Printing Information ======
         --- All available baudrates
