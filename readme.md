@@ -30,6 +30,10 @@ m.terminateConnection()
 # --- Get connected motor ids
 m.getConnectIds()
 
+====== ID settings ======
+# --- Set new id to specified motor id
+m.setNewIdOf(self, motor_id, new_id):
+
 ====== Printing Information ======
 # --- All available baudrates
 m.printAvailableBaudrates()
