@@ -32,7 +32,7 @@ m.getConnectIds()
 
 ====== ID settings ======
 # --- Set new id to specified motor id
-m.setNewIdOf(self, motor_id, new_id):
+m.setNewIdOf(motor_id, new_id):
 
 ====== Printing Information ======
 # --- All available baudrates
@@ -47,8 +47,8 @@ m.getPositionOf(motor_id)
 m.getPositionAll()
 
 # --- Set
-m.setPositionOf(self, motor_id, pos=512, speed=90)
-m.setPositionAll(self, pos=512, speed=90)
+m.setPositionOf(motor_id, pos=512, speed=90)
+m.setPositionAll(pos=512, speed=90)
 
 ====== Baudrate Control ======
 # --- Get
