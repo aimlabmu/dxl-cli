@@ -1,0 +1,4 @@
+pyserial
+cffi
+rpi.gpio
+smbus-cffi
