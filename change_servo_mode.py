@@ -32,7 +32,11 @@ def write_output(control_byte, register_address, value):
         bus.write_byte_data(control_byte, register_address, value)
 
 write_output(control_byte, IODIR, output_mode) # setup output port A
-# WriteOutput(control_byte,GPIOA,0x00) # Write the output to port A
-# time.sleep(3)
+
+# cut electric power to motor
+WriteOutput(control_byte,GPIO_ROBOT,0x00) # Write the output to port A
+time.sleep(3)
+
+# resume
 write_output(control_byte, GPIO_ROBOT, 0xFF) # Write the output to port A
 time.sleep(0.5)
