@@ -53,3 +53,18 @@ class BasicController:
     def setTorqueAll(self, status):
         for motorId in self.connected_motor_ids:
             self.connection.setTorqueStatus(motorId, status)
+
+    def setTorqueLimitOf(self, motor_id, torque):
+        self.connection.setTorqueLimit(motor_id, torque)
+
+    def setTorqueLimitAll(self, torque):
+        for motorId in self.connected_motor_ids:
+            self.connection.setTorqueLimit(motorId, torque)
+
+    ####################
+    # Resetting Error #
+    ####################
+
+    def resetOverloadErrorOf(self, motor_id):
+        self.setTorqueLimitOf(motor_id, 1023)
+        self.setTorqueOf(motor_id, 0)
