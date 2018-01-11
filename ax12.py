@@ -613,6 +613,22 @@ class Ax12:
         sleep(Ax12.TX_DELAY_TIME)
         return self.readData(id)
 
+    def readAngleLimit(self, id):
+        self.direction(Ax12.RPI_DIRECTION_TX)
+        Ax12.port.flushInput()
+        checksum = (~(id + Ax12.AX_POS_LENGTH + Ax12.AX_READ_DATA + Ax12.AX_CW_ANGLE_LIMIT_L + Ax12.AX_INT_READ))&0xff
+        outData = bytes([Ax12.AX_START])
+        outData += bytes([Ax12.AX_START])
+        outData += bytes([id])
+        outData += bytes([Ax12.AX_POS_LENGTH])
+        outData += bytes([Ax12.AX_READ_DATA])
+        outData += bytes([Ax12.AX_CW_ANGLE_LIMIT_L])
+        outData += bytes([Ax12.AX_INT_READ])
+        outData += bytes([checksum])
+        Ax12.port.write(outData)
+        sleep(Ax12.TX_DELAY_TIME)
+        return self.readData(id)
+
     def readVoltage(self, id):
         self.direction(Ax12.RPI_DIRECTION_TX)
         Ax12.port.flushInput()

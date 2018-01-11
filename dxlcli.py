@@ -43,6 +43,18 @@ class BasicController:
 
         return temp
 
+    ###############
+    # Limit Angle #
+    ###############
+
+    def setAngleLimitOf(self, motor_id, cwLim, ccwLim):
+        self.connection.setAngleLimit(motor_id, cwLim, ccwLim)
+
+    def readAngleLimitOf(self, motor_id):
+        angleLimit = self.connection.readAngleLimit(motor_id)
+        print("Angle is limit at:", angleLimit)
+        return angleLimit
+        
     ####################
     # Torque Control #
     ####################
