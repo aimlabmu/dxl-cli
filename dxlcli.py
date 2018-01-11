@@ -81,6 +81,24 @@ class MotorManager:
 
         return temp
 
+    ###############
+    # Limit Angle #
+    ###############
+
+    def setAngleLimitOf(self, motor_id, cwLim, ccwLim):
+        # set limit for cw rotation
+        self.serial_connection.set_cw_angle_limit(motor_id, cwLim)
+        # set limit for ccw rotation
+        self.serial_connection.set_ccw_angle_limit(motor_id, ccwLim)
+
+        print("Angle limit is set at: {0}(cw), {1}(ccw)".format(cwLim, ccwLim))
+
+    def getAngleLimitOf(self, motor_id):
+        cwLim = self.serial_connection.get_cw_angle_limit(motor_id)
+        ccwLim = self.serial_connection.get_ccw_angle_limit(motor_id)
+
+        print("Current angle limit is at: {0}(cw), {1}(ccw)".format(cwLim, ccwLim))
+
     ####################
     # Baudrate Control #
     ####################
